@@ -88,7 +88,7 @@ abstract class BaseScanParser(
   protected def fileNameValid(filename: String): Boolean =
     clamConfig.validFilenameRegex.forall(
       regex =>
-        regex.r.findFirstMatchIn(decode(filename, Codec.utf_8.charset)) match {
+        regex.r.findFirstMatchIn(filename, ) match {
           case Some(_) => false
           case None    => true
       }
